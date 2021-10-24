@@ -7,6 +7,15 @@ function GifLibraryComponent(props){
 
 
     let gifData = props.value[0]
+
+    const updateGifData = () => {
+        if(gifData != props.value[0]){
+            gifData = props.value[0]
+            setGifState(gifData)
+        }
+        
+    }
+
     console.log('DATA', gifData)
     console.log('STATE', gifState)
 
@@ -29,6 +38,7 @@ function GifLibraryComponent(props){
     }
         
         useEffect(() => {
+            updateGifData()
             setGifState(gifData)
             getGifJSX()
         }, [gifData, toggle]);
